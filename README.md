@@ -5,7 +5,7 @@ Can also be used as a decorator to cache function calls (works for async functio
 
 ## Installation
 
-`pip install timedcache`
+`pip install py-timed-cache`
 
 ## Example
 

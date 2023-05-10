@@ -5,7 +5,7 @@ with open("README.md") as fd:
     readme = fd.read()
 
 setup(
-    name="timedcache",
+    name="py-timed-cache",
     version="1.0.0",
     description="Pure Python timed-cache",
     long_description=readme,
