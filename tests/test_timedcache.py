@@ -41,6 +41,23 @@ class BasicTestSuite(unittest.TestCase):
         self.assertEqual(result2, sum(numbers))
         self.assertEqual(len(l), 1)
 
+    @async_test
+    async def test_cache_async_function(self):
+        l = []
+
+        @timedcache.TimedCache(1)
+        async def foo(*args):
+            l.append(None)
+            return sum(args)
+
+        numbers = [1, 2, 3]
+        result = await foo(*numbers)
+        self.assertEqual(result, sum(numbers))
+        self.assertEqual(len(l), 1)
+        result2 = await foo(*numbers)
+        self.assertEqual(result2, sum(numbers))
+        self.assertEqual(len(l), 1)
+
 
 if __name__ == "__main__":
     try:
